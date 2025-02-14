@@ -1,0 +1,12 @@
+@startuml
+object Internet
+object Route1
+object Route2
+object Windows
+object WSL
+
+Internet --"100.81.41.125" Route1
+Route1 "192.168.1.1/24(1C-FF-59-89-6E-D1)"--"192.168.1.2/24(68-DD-B7-64-DE-60)" Route2
+Route2 "192.168.2.1/24(68-DD-B7-64-DE-61)"--"192.168.2.16/24(CC-5E-F8-16-6B-03)" Windows
+Windows "172.21.224.1/20(00-15-5D-E7-44-4B)"--"172.21.234.48/20(00-15-5D-83-93-8C)" WSL
+@enduml
