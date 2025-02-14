@@ -1,9 +1,8 @@
 .PHONY: all clean
-all: server client
-server: server.c common.c common.h
-	gcc -Wall -o$@ $< common.c
-client: client.c common.c common.h
-	gcc -Wall -o$@ $< common.c
+all = server client
+src = $(wildcard *.c)
+all: $(all)
+$(all): common.o
+$(src:.c=.o): common.h
 clean:
-	indent -linux *.c *.h
-	rm -f *~ *.o server client
+	rm -f *.o $(all)
